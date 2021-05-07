@@ -233,4 +233,89 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	// Preguntas
+	$("button[action='question']").on("click",function(){
+		$("#formQuestion").validate({
+			rules:
+			{
+				"question[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"question[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"answer[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 1000
+				},
+
+				"answer[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 1000
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='question']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	// Ajustes
+	$("button[action='setting']").on("click",function(){
+		$("#formSetting").validate({
+			rules:
+			{
+				phone: {
+					required: true,
+					minlength: 5,
+					maxlength: 20
+				},
+
+				email: {
+					required: true,
+					email: true,
+					minlength: 5,
+					maxlength: 191
+				},
+
+				address: {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				facebook: {
+					required: false,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				twitter: {
+					required: false,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				instagram: {
+					required: false,
+					minlength: 2,
+					maxlength: 191
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='setting']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
 });

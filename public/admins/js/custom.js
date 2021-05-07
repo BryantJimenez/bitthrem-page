@@ -290,8 +290,23 @@ function activeUser(slug) {
   $('#formActiveUser').attr('action', '/admin/usuarios/' + slug + '/activar');
 }
 
+function deactiveQuestion(slug) {
+  $("#deactiveQuestion").modal();
+  $('#formDeactiveQuestion').attr('action', '/admin/preguntas/' + slug + '/desactivar');
+}
+
+function activeQuestion(slug) {
+  $("#activeQuestion").modal();
+  $('#formActiveQuestion').attr('action', '/admin/preguntas/' + slug + '/activar');
+}
+
 //funciones para preguntar al eliminar
 function deleteUser(slug) {
   $("#deleteUser").modal();
   $('#formDeleteUser').attr('action', '/admin/usuarios/' + slug);
+}
+
+function deleteQuestion(slug) {
+  $("#deleteQuestion").modal();
+  $('#formDeleteQuestion').attr('action', '/admin/preguntas/' + slug);
 }

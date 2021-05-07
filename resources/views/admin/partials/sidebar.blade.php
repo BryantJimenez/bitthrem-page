@@ -29,6 +29,26 @@
                 </a>
             </li>
             @endcan
+
+            @can('questions.index')
+            <li class="menu {{ active('admin/preguntas', 0) }}">
+                <a href="{{ route('preguntas.index') }}" aria-expanded="{{ menu_expanded('admin/preguntas', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-question"></i> Preguntas</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
+            @can('settings.edit')
+            <li class="menu {{ active('admin/ajustes', 0) }}">
+                <a href="{{ route('ajustes.edit') }}" aria-expanded="{{ menu_expanded('admin/ajustes', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-cogs"></i> Ajustes</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
         </ul>
 
     </nav>

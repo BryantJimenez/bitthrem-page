@@ -40,4 +40,18 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::delete('/admin/usuarios/{user:slug}', 'UserController@destroy')->name('usuarios.delete')->middleware('permission:users.delete');
 	Route::put('/admin/usuarios/{user:slug}/activar', 'UserController@activate')->name('usuarios.activate')->middleware('permission:users.active');
 	Route::put('/admin/usuarios/{user:slug}/desactivar', 'UserController@deactivate')->name('usuarios.deactivate')->middleware('permission:users.deactive');
+
+	// Preguntas
+	Route::get('/admin/preguntas', 'QuestionController@index')->name('preguntas.index')->middleware('permission:questions.index');
+	Route::get('/admin/preguntas/registrar', 'QuestionController@create')->name('preguntas.create')->middleware('permission:questions.create');
+	Route::post('/admin/preguntas', 'QuestionController@store')->name('preguntas.store')->middleware('permission:questions.create');
+	Route::get('/admin/preguntas/{question:slug}/editar', 'QuestionController@edit')->name('preguntas.edit')->middleware('permission:questions.edit');
+	Route::put('/admin/preguntas/{question:slug}', 'QuestionController@update')->name('preguntas.update')->middleware('permission:questions.edit');
+	Route::delete('/admin/preguntas/{question:slug}', 'QuestionController@destroy')->name('preguntas.delete')->middleware('permission:questions.delete');
+	Route::put('/admin/preguntas/{question:slug}/activar', 'QuestionController@activate')->name('preguntas.activate')->middleware('permission:questions.active');
+	Route::put('/admin/preguntas/{question:slug}/desactivar', 'QuestionController@deactivate')->name('preguntas.deactivate')->middleware('permission:questions.deactive');
+
+	// Ajustes
+	Route::get('/admin/ajustes', 'SettingController@edit')->name('ajustes.edit')->middleware('permission:settings.edit');
+	Route::put('/admin/ajustes', 'SettingController@update')->name('ajustes.update')->middleware('permission:settings.edit');
 });

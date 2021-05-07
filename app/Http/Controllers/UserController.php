@@ -53,7 +53,7 @@ class UserController extends Controller
                 $user->fill(['photo' => $photo])->save();
             }
 
-            SendEmailRegister::dispatch($user->slug);
+            // SendEmailRegister::dispatch($user->slug);
             return redirect()->route('usuarios.index')->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Registro exitoso', 'msg' => 'El usuario ha sido registrado exitosamente.']);
         } else {
             return redirect()->route('usuarios.create')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Registro fallido', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.'])->withInputs();
