@@ -30,11 +30,31 @@
             </li>
             @endcan
 
+            @can('categories.index')
+            <li class="menu {{ active('admin/categorias', 0) }}">
+                <a href="{{ route('categorias.index') }}" aria-expanded="{{ menu_expanded('admin/categorias', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-box"></i> Categorias</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
             @can('questions.index')
             <li class="menu {{ active('admin/preguntas', 0) }}">
                 <a href="{{ route('preguntas.index') }}" aria-expanded="{{ menu_expanded('admin/preguntas', 0) }}" class="dropdown-toggle">
                     <div class="">
                         <span><i class="fa fa-question"></i> Preguntas</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
+            @can('articles.index')
+            <li class="menu {{ active('admin/articulos', 0) }}">
+                <a href="{{ route('articulos.index') }}" aria-expanded="{{ menu_expanded('admin/articulos', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-file"></i> Artículos</span>
                     </div>
                 </a>
             </li>

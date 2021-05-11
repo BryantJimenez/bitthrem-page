@@ -10,6 +10,16 @@ function state($state) {
 	}
 }
 
+function stateArticle($state) {
+	if ($state==0) {
+		return '<span class="badge badge-info">Borrador</span>';
+	} elseif ($state==1) {
+		return '<span class="badge badge-success">Publicado</span>';
+	} else {
+		return '<span class="badge badge-dark">Desconocido</span>';
+	}
+}
+
 function roleUser($user, $badge=1) {
 	if (!is_null($user->roles)) {
 		$roles="";

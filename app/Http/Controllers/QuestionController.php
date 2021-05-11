@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Question;
 use App\Http\Requests\QuestionStoreRequest;
 use App\Http\Requests\QuestionUpdateRequest;
@@ -15,7 +16,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $questions=Question::orderBy('id', 'DESC')->get();
+        $questions=Question::with(['category'])->orderBy('id', 'DESC')->get();
         return view('admin.questions.index', compact('questions'));
     }
 
@@ -25,7 +26,8 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('admin.questions.create');
+        $categories=Category::where('state', '1')->orderBy('name', 'ASC')->get();
+        return view('admin.questions.create', compact('categories'));
     }
 
     /**
@@ -35,7 +37,8 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(QuestionStoreRequest $request) {
-        $data=array('question' => request('question'), 'answer' => request('answer'));
+        $category=Category::where('slug', request('category_id'))->firstOrFail();
+        $data=array('question' => request('question'), 'answer' => request('answer'), 'category_id' => $category->id);
         $question=Question::create($data);
 
         if ($question) {
@@ -52,7 +55,8 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Question $question) {
-        return view('admin.questions.edit', compact("question"));
+        $categories=Category::where('state', '1')->orderBy('name', 'ASC')->get();
+        return view('admin.questions.edit', compact("categories", "question"));
     }
 
     /**
@@ -63,7 +67,8 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(QuestionUpdateRequest $request, Question $question) {
-        $data=array('question' => request('question'), 'answer' => request('answer'));
+        $category=Category::where('slug', request('category_id'))->firstOrFail();
+        $data=array('question' => request('question'), 'answer' => request('answer'), 'category_id' => $category->id);
         $question->fill($data)->save();
 
         if ($question) {

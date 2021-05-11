@@ -150,7 +150,18 @@ return [
         'password'              => 'contraseña',
         'confirm'               => 'confirmar contraseña',
         'password_confirmation' => 'confirmar contraseña',
-        'state'                 => 'estado'
+        'state'                 => 'estado',
+        'name.es'               => 'nombre',
+        'name.en'               => 'nombre en inglés',
+        'question.es'           => 'pregunta',
+        'question.en'           => 'pregunta en inglés',
+        'answer.es'             => 'respuesta',
+        'answer.en'             => 'respuesta en inglés',
+        'category_id'           => 'categoría',
+        'title.es'              => 'título',
+        'title.en'              => 'título en inglés',
+        'content.es'            => 'contenido',
+        'content.en'            => 'contenido en inglés'
     ],
 ];
 ?>

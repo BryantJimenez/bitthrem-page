@@ -35,6 +35,16 @@
 							@method('PUT')
 							<div class="row">
 								<div class="form-group col-12">
+									<label class="col-form-label">Categoría<b class="text-danger">*</b></label>
+									<select class="form-control @error('category_id') is-invalid @enderror" required name="category_id">
+										<option value="">Seleccione</option>
+										@foreach($categories as $category)
+										<option value="{{ $category->slug }}" @if($category->id==$question->category_id) selected @endif>{{ $category->name }}</option>
+										@endforeach
+									</select>
+								</div>
+
+								<div class="form-group col-12">
 									<label class="col-form-label">Pregunta<b class="text-danger">*</b></label>
 									<input class="form-control @error('question.es') is-invalid @enderror" type="text" name="question[es]" required placeholder="Introduzca la preguna" value="{{ $question->question }}">
 								</div>

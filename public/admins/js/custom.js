@@ -268,6 +268,19 @@ $(document).ready(function() {
       maxDate : "today"
     });
   }
+
+  //CKeditor plugin
+  if ($('#content_article').length) {
+    CKEDITOR.config.height=300;
+    CKEDITOR.config.width='auto';
+    CKEDITOR.replace('content_article');
+  }
+
+  if ($('#content_article_en').length) {
+    CKEDITOR.config.height=250;
+    CKEDITOR.config.width='auto';
+    CKEDITOR.replace('content_article_en');
+  }
 });
 
 // funcion para cambiar el input hidden al cambiar el switch de estado
@@ -290,6 +303,16 @@ function activeUser(slug) {
   $('#formActiveUser').attr('action', '/admin/usuarios/' + slug + '/activar');
 }
 
+function deactiveCategory(slug) {
+  $("#deactiveCategory").modal();
+  $('#formDeactiveCategory').attr('action', '/admin/categorias/' + slug + '/desactivar');
+}
+
+function activeCategory(slug) {
+  $("#activeCategory").modal();
+  $('#formActiveCategory').attr('action', '/admin/categorias/' + slug + '/activar');
+}
+
 function deactiveQuestion(slug) {
   $("#deactiveQuestion").modal();
   $('#formDeactiveQuestion').attr('action', '/admin/preguntas/' + slug + '/desactivar');
@@ -300,13 +323,33 @@ function activeQuestion(slug) {
   $('#formActiveQuestion').attr('action', '/admin/preguntas/' + slug + '/activar');
 }
 
+function deactiveArticle(slug) {
+  $("#deactiveArticle").modal();
+  $('#formDeactiveArticle').attr('action', '/admin/articulos/' + slug + '/desactivar');
+}
+
+function activeArticle(slug) {
+  $("#activeArticle").modal();
+  $('#formActiveArticle').attr('action', '/admin/articulos/' + slug + '/activar');
+}
+
 //funciones para preguntar al eliminar
 function deleteUser(slug) {
   $("#deleteUser").modal();
   $('#formDeleteUser').attr('action', '/admin/usuarios/' + slug);
 }
 
+function deleteCategory(slug) {
+  $("#deleteCategory").modal();
+  $('#formDeleteCategory').attr('action', '/admin/categorias/' + slug);
+}
+
 function deleteQuestion(slug) {
   $("#deleteQuestion").modal();
   $('#formDeleteQuestion').attr('action', '/admin/preguntas/' + slug);
+}
+
+function deleteArticle(slug) {
+  $("#deleteArticle").modal();
+  $('#formDeleteArticle').attr('action', '/admin/articulos/' + slug);
 }

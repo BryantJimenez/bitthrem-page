@@ -19,7 +19,10 @@ Auth::routes(['register' => false]);
 Route::get('/usuarios/email', 'AdminController@emailVerifyAdmin');
 
 /////////////////////////////////////////////// WEB ////////////////////////////////////////////////
-Route::get('/', 'WebController@index')->name('home');
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+	Route::get('/', 'WebController@index')->name('home');
+});
+
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
 	/////////////////////////////////////// ADMIN ///////////////////////////////////////////////////
@@ -41,6 +44,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::put('/admin/usuarios/{user:slug}/activar', 'UserController@activate')->name('usuarios.activate')->middleware('permission:users.active');
 	Route::put('/admin/usuarios/{user:slug}/desactivar', 'UserController@deactivate')->name('usuarios.deactivate')->middleware('permission:users.deactive');
 
+	// Categorias
+	Route::get('/admin/categorias', 'CategoryController@index')->name('categorias.index')->middleware('permission:categories.index');
+	Route::get('/admin/categorias/registrar', 'CategoryController@create')->name('categorias.create')->middleware('permission:categories.create');
+	Route::post('/admin/categorias', 'CategoryController@store')->name('categorias.store')->middleware('permission:categories.create');
+	Route::get('/admin/categorias/{category:slug}/editar', 'CategoryController@edit')->name('categorias.edit')->middleware('permission:categories.edit');
+	Route::put('/admin/categorias/{category:slug}', 'CategoryController@update')->name('categorias.update')->middleware('permission:categories.edit');
+	Route::delete('/admin/categorias/{category:slug}', 'CategoryController@destroy')->name('categorias.delete')->middleware('permission:categories.delete');
+	Route::put('/admin/categorias/{category:slug}/activar', 'CategoryController@activate')->name('categorias.activate')->middleware('permission:categories.active');
+	Route::put('/admin/categorias/{category:slug}/desactivar', 'CategoryController@deactivate')->name('categorias.deactivate')->middleware('permission:categories.deactive');
+
 	// Preguntas
 	Route::get('/admin/preguntas', 'QuestionController@index')->name('preguntas.index')->middleware('permission:questions.index');
 	Route::get('/admin/preguntas/registrar', 'QuestionController@create')->name('preguntas.create')->middleware('permission:questions.create');
@@ -50,6 +63,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::delete('/admin/preguntas/{question:slug}', 'QuestionController@destroy')->name('preguntas.delete')->middleware('permission:questions.delete');
 	Route::put('/admin/preguntas/{question:slug}/activar', 'QuestionController@activate')->name('preguntas.activate')->middleware('permission:questions.active');
 	Route::put('/admin/preguntas/{question:slug}/desactivar', 'QuestionController@deactivate')->name('preguntas.deactivate')->middleware('permission:questions.deactive');
+
+	// Articulos
+	Route::get('/admin/articulos', 'ArticleController@index')->name('articulos.index')->middleware('permission:articles.index');
+	Route::get('/admin/articulos/registrar', 'ArticleController@create')->name('articulos.create')->middleware('permission:articles.create');
+	Route::post('/admin/articulos', 'ArticleController@store')->name('articulos.store')->middleware('permission:articles.create');
+	Route::get('/admin/articulos/{article:slug}/editar', 'ArticleController@edit')->name('articulos.edit')->middleware('permission:articles.edit');
+	Route::put('/admin/articulos/{article:slug}', 'ArticleController@update')->name('articulos.update')->middleware('permission:articles.edit');
+	Route::delete('/admin/articulos/{article:slug}', 'ArticleController@destroy')->name('articulos.delete')->middleware('permission:articles.delete');
+	Route::put('/admin/articulos/{article:slug}/activar', 'ArticleController@activate')->name('articulos.activate')->middleware('permission:articles.active');
+	Route::put('/admin/articulos/{article:slug}/desactivar', 'ArticleController@deactivate')->name('articulos.deactivate')->middleware('permission:articles.deactive');
 
 	// Ajustes
 	Route::get('/admin/ajustes', 'SettingController@edit')->name('ajustes.edit')->middleware('permission:settings.edit');

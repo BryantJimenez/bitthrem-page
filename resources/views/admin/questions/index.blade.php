@@ -42,6 +42,7 @@
 										<th>#</th>
 										<th>Pregunta</th>
 										<th>Respuesta</th>
+										<th>Categoría</th>
 										<th>Estado</th>
 										@if(auth()->user()->can('questions.edit') || auth()->user()->can('questions.active') || auth()->user()->can('questions.deactive') || auth()->user()->can('questions.delete'))
 										<th>Acciones</th>
@@ -54,6 +55,7 @@
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $question->question }}</td>
 										<td>{{ $question->answer }}</td>
+										<td>{{ $question['category']->name }}</td>
 										<td>{!! state($question->state) !!}</td>
 										@if(auth()->user()->can('questions.edit') || auth()->user()->can('questions.active') || auth()->user()->can('questions.deactive') || auth()->user()->can('questions.delete'))
 										<td>

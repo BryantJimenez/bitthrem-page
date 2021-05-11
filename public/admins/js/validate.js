@@ -234,11 +234,39 @@ $(document).ready(function(){
 		});
 	});
 
+	// Categorias
+	$("button[action='category']").on("click",function(){
+		$("#formCategory").validate({
+			rules:
+			{
+				"name[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"name[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='category']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
 	// Preguntas
 	$("button[action='question']").on("click",function(){
 		$("#formQuestion").validate({
 			rules:
 			{
+				category_id: {
+					required: true
+				},
+				
 				"question[es]": {
 					required: true,
 					minlength: 2,
@@ -265,6 +293,97 @@ $(document).ready(function(){
 			},
 			submitHandler: function(form) {
 				$("button[action='question']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	// Articulos
+	$("button[action='article']").on("click",function(){
+		$("#formArticle").validate({
+			rules:
+			{	
+				image: {
+					required: true
+				},
+
+				"title[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"title[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"content[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				},
+
+				"content[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				}
+			},
+			messages:
+			{
+				image: {
+					required: 'Seleccione una imagen.'
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='article']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	$("button[action='article']").on("click",function(){
+		$("#formArticleEdit").validate({
+			rules:
+			{	
+				image: {
+					required: false
+				},
+
+				"title[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"title[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"content[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				},
+
+				"content[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				}
+			},
+			messages:
+			{
+				image: {
+					required: 'Seleccione una imagen.'
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='article']").attr('disabled', true);
 				form.submit();
 			}
 		});

@@ -146,6 +146,16 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'name.es'               => 'name',
+        'name.en'               => 'name in english',
+        'question.es'           => 'question',
+        'question.en'           => 'question in english',
+        'answer.es'             => 'answer',
+        'answer.en'             => 'answer in english',
+        'title.es'              => 'title',
+        'title.en'              => 'title in english',
+        'content.es'            => 'content',
+        'content.en'            => 'content in english'
+    ],
 ];

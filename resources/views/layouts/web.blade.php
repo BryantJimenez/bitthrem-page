@@ -32,20 +32,13 @@
 	<link href="{{ asset('/web/css/style.css') }}" rel="stylesheet">
 	<!-- Style CSS -->
 </head>
-<body class="goto-here bg-white">
+<body class="bg-white">
 
 	@include('web.partials.navbar')
 
 	@yield('content')
 
 	@include('web.partials.footer')
-
-	@if(!session()->has('user'))
-	@include('web.partials.login')
-	@include('web.partials.register')
-	@include('web.partials.recovery')
-	@include('web.partials.terms')
-	@endif
 	
 	@include('web.partials.loader')
 
@@ -65,20 +58,5 @@
 	<script src="{{ asset('/admins/js/validate.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/web/js/script.js') }}"></script>
 	@include('admin.partials.notifications')
-	@if(!session()->has('user'))
-	@if(!is_null(old('name')) && !is_null(old('lastname')) && !is_null(old('email')) || session('error.register'))
-	<script type="text/javascript">
-		$('#modal-register').modal('show');
-	</script>
-	@elseif(!is_null(old('email')) || session('error.login'))
-	<script type="text/javascript">
-		$('#modal-login').modal('show');
-	</script>
-	@elseif(!is_null(old('recovery')) || session('error.recovery') || session('success.recovery'))
-	<script type="text/javascript">
-		$('#modal-recovery').modal('show');
-	</script>
-	@endif
-	@endif
 </body>
 </html>

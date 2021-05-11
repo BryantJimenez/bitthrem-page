@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Article;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,8 @@ class AdminController extends Controller
      */
     public function index() {
         $users=User::count();
-        return view('admin.home', compact('users'));
+        $articles=Article::count();
+        return view('admin.home', compact('users', 'articles'));
     }
 
     public function profile() {
