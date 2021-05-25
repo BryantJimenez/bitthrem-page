@@ -42,6 +42,14 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'questions.active']);
         Permission::create(['name' => 'questions.deactive']);
 
+        // Permisos de Centro de Ayudas
+        Permission::create(['name' => 'helps.index']);
+        Permission::create(['name' => 'helps.create']);
+        Permission::create(['name' => 'helps.edit']);
+        Permission::create(['name' => 'helps.delete']);
+        Permission::create(['name' => 'helps.active']);
+        Permission::create(['name' => 'helps.deactive']);
+
         // Permisos de Articulos
         Permission::create(['name' => 'articles.index']);
         Permission::create(['name' => 'articles.create']);
@@ -49,6 +57,10 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'articles.delete']);
         Permission::create(['name' => 'articles.active']);
         Permission::create(['name' => 'articles.deactive']);
+
+        // Permisos de Idiomas
+        Permission::create(['name' => 'languages.index']);
+        Permission::create(['name' => 'languages.create']);
 
         // Permisos de Ajustes
         Permission::create(['name' => 'settings.edit']);

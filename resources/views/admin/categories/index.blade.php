@@ -41,6 +41,7 @@
 									<tr>
 										<th>#</th>
 										<th>Nombre</th>
+										<th>Tipo</th>
 										<th>Estado</th>
 										@if(auth()->user()->can('categories.edit') || auth()->user()->can('categories.active') || auth()->user()->can('categories.deactive') || auth()->user()->can('categories.delete'))
 										<th>Acciones</th>
@@ -52,6 +53,7 @@
 									<tr>
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $category->name." (".$category->translate('name', 'en').")" }}</td>
+										<td>{!! typeCategory($category->type) !!}</td>
 										<td>{!! state($category->state) !!}</td>
 										@if(auth()->user()->can('categories.edit') || auth()->user()->can('categories.active') || auth()->user()->can('categories.deactive') || auth()->user()->can('categories.delete'))
 										<td>

@@ -26,7 +26,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $categories=Category::where('state', '1')->orderBy('name', 'ASC')->get();
+        $categories=Category::where([['state', '1'], ['type','1']])->orderBy('name', 'ASC')->get();
         return view('admin.questions.create', compact('categories'));
     }
 
@@ -55,7 +55,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Question $question) {
-        $categories=Category::where('state', '1')->orderBy('name', 'ASC')->get();
+        $categories=Category::where([['state', '1'], ['type','1']])->orderBy('name', 'ASC')->get();
         return view('admin.questions.edit', compact("categories", "question"));
     }
 

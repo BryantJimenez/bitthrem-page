@@ -20,7 +20,11 @@ class CreateArticlesTable extends Migration
             $table->longText('content');
             $table->string('image')->default('imagen.jpg');
             $table->enum('state', [0, 1])->default(1);
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->timestamps();
+
+            #Relations
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
         });
     }
 

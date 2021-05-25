@@ -72,4 +72,87 @@
 		});
 	};
 	scrollWindow();
+
+	// Owl Carousel
+	if($('.advantage-carousel').length) {
+		$('.advantage-carousel').owlCarousel({
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplayHoverPause: true,
+			autoHeight: true,
+			center: true,
+			loop: true,
+			items: 2,
+			margin: 30,
+			stagePadding: 0,
+			nav: true,
+			dots: false,
+			navText: ['<span class="fa fa-angle-left">', '<span class="fa fa-angle-right">'],
+			responsive:{
+				0:{
+					items: 1,
+					margin: 10,
+					stagePadding: 20
+				},
+				500:{
+					items: 1,
+					margin: 85,
+					stagePadding: 100
+				},
+				800:{
+					items: 2,
+					margin: 30,
+					stagePadding: 0
+				}
+			}
+		});
+	}
+
+	if($('.features-carousel').length) {
+		$('.features-carousel').owlCarousel({
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplayHoverPause: true,
+			autoHeight: true,
+			center: false,
+			loop: true,
+			items: 1,
+			margin: 122,
+			stagePadding: 60,
+			nav: false,
+			dots: true,
+			navText: ['<span class="fa fa-angle-left">', '<span class="fa fa-angle-right">'],
+			responsive:{
+				0:{
+					items: 1,
+					margin: 85,
+					stagePadding: 20
+				},
+				376:{
+					items: 1,
+					margin: 122,
+					stagePadding: 60
+				}
+			}
+		});
+	}
+
+	// Counter
+	if ($('.section-counter').length) {
+		$('.section-counter .count').counterUp({
+			time: 3000
+		});
+	};
 })(jQuery);
+
+$('.section-card-guide .card-guide').click(function(event) {
+	var element=$(this).data('element');
+	$('.section-card-guide .card-guide').attr('data-active', false);
+	$('.section-guide .info-guide').attr('data-show', false);
+	$('.section-card-guide .card-guide[data-element="'+element+'"]').attr('data-active', true);
+	$('.section-guide .info-guide[data-element="'+element+'"]').attr('data-show', true);
+	var posicion=$('.section-guide').offset().top;
+    $("html, body").animate({
+        scrollTop: posicion
+    }, 1500); 
+});

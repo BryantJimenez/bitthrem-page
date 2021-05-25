@@ -12,7 +12,7 @@ class Category extends Model
 {
 	use SoftDeletes, HasSlug, HasTranslations;
 
-    protected $fillable = ['name', 'slug', 'state'];
+    protected $fillable = ['name', 'slug', 'type', 'state'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -23,5 +23,13 @@ class Category extends Model
 
     public function questions() {
         return $this->hasMany(Question::class);
+    }
+
+    public function helps() {
+        return $this->hasMany(Help::class);
+    }
+
+    public function articles() {
+        return $this->hasMany(Article::class);
     }
 }

@@ -32,6 +32,16 @@
 							@csrf
 							<div class="row">
 								<div class="form-group col-12">
+									<label class="col-form-label">Categoría<b class="text-danger">*</b></label>
+									<select class="form-control @error('category_id') is-invalid @enderror" required name="category_id">
+										<option value="">Seleccione</option>
+										@foreach($categories as $category)
+										<option value="{{ $category->slug }}" @if($category->slug==old('category_id')) selected @endif>{{ $category->name }}</option>
+										@endforeach
+									</select>
+								</div>
+								
+								<div class="form-group col-12">
 									<label class="col-form-label">Imagen Principal<b class="text-danger">*</b></label>
 									<input type="file" name="image" accept="image/*" class="dropify" data-height="125" data-max-file-size="20M" data-allowed-file-extensions="jpg png jpeg web3" />
 								</div>

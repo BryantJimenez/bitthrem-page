@@ -1,15 +1,17 @@
 @if(Session::has('success'))
-    <div class="bg-green-lightest text-green-darker p-6 shadow-md" role="alert">
-        <div class="flex justify-center">
-            <p>{{ Session::get('success') }}</p>
-        </div>
-    </div>
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <ul>
+        <li>{{ Session::get('success') }}</li>
+    </ul>
+</div>
 @endif
 
 @if(Session::has('error'))
-    <div class="bg-red-lightest text-red-darker p-6 shadow-md" role="alert">
-        <div class="flex justify-center">
-            <p>{!! Session::get('error') !!}</p>
-        </div>
-    </div>
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <ul>
+        <li>{!! Session::get('error') !!}</li>
+    </ul>
+</div>
 @endif

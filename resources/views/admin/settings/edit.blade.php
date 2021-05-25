@@ -55,8 +55,8 @@
 								</div>
 								
 								<div class="form-group col-lg-6 col-md-6 col-12">
-									<label class="col-form-label">Twitter (Opcional)</label>
-									<input class="form-control @error('twitter') is-invalid @enderror" name="twitter" placeholder="Introduzca la url de twitter" value="{{ $setting->twitter }}">
+									<label class="col-form-label">Youtube (Opcional)</label>
+									<input class="form-control @error('youtube') is-invalid @enderror" name="youtube" placeholder="Introduzca la url de youtube" value="{{ $setting->youtube }}">
 								</div>
 
 								<div class="form-group col-lg-6 col-md-6 col-12">

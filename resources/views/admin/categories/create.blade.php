@@ -40,6 +40,16 @@
 									<input class="form-control @error('name.en') is-invalid @enderror" type="text" name="name[en]" required placeholder="Introduzca una traducción del nombre" value="{{ old('name.en') }}" id="name_en">
 								</div>
 
+								<div class="form-group col-lg-6 col-md-6 col-12">
+									<label class="col-form-label">Tipo<b class="text-danger">*</b></label>
+									<select class="form-control @error('type') is-invalid @enderror" required name="type">
+										<option value="">Seleccione</option>
+										<option value="1" @if("1"==old('type')) selected @endif>Preguntas Frecuentes</option>
+										<option value="2" @if("2"==old('type')) selected @endif>Centro de Ayuda</option>
+										<option value="3" @if("3"==old('type')) selected @endif>Blog</option>
+									</select>
+								</div>
+
 								<div class="form-group col-12">
 									<div class="btn-group" role="group">
 										<button type="submit" class="btn btn-primary" action="category">Guardar</button>

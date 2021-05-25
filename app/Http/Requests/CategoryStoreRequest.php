@@ -6,7 +6,6 @@ use App\Category;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Str;
 
 class CategoryStoreRequest extends FormRequest
 {
@@ -20,14 +19,6 @@ class CategoryStoreRequest extends FormRequest
         return true;
     }
 
-    protected function prepareForValidation()
-    {
-        $trashed=Category::where('slug', Str::slug($this->name['es']))->withTrashed()->exists();
-        $exist=Category::where('slug', Str::slug($this->name['es']))->exists();
-        ($trashed) ? $this->merge(['trashed' => true]) : $this->merge(['trashed' => false]);
-        ($exist) ? $this->merge(['exist' => true]) : $this->merge(['exist' => false]);
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -35,12 +26,9 @@ class CategoryStoreRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->trashed && $this->exist===false) {
-            $category=Category::where('slug', Str::slug($this->name['es']))->withTrashed()->first();
-            $category->restore();
-        }
         return [
-            'name.*' => 'required|string|min:2|max:191|unique_translation:categories,name'
+            'name.*' => 'required|string|min:2|max:191|unique_translation:categories,name,null,null,type,'.$this->type,
+            'type' => 'required|'.Rule::in(['1', '2', '3'])
         ];
     }
 }

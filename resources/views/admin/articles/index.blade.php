@@ -41,6 +41,7 @@
 									<tr>
 										<th>#</th>
 										<th>Titulo</th>
+										<th>Categoría</th>
 										<th>Estado</th>
 										<th>Fecha</th>
 										@if(auth()->user()->can('articles.edit') || auth()->user()->can('articles.active') || auth()->user()->can('articles.deactive') || auth()->user()->can('articles.delete'))
@@ -53,6 +54,7 @@
 									<tr>
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $article->title }}</td>
+										<td>{{ $article['category']->name }}</td>
 										<td>{!! stateArticle($article->state) !!}</td>
 										<td>{{ $article->created_at->format('d-m-Y') }}</td>
 										@if(auth()->user()->can('articles.edit') || auth()->user()->can('articles.active') || auth()->user()->can('articles.deactive') || auth()->user()->can('articles.delete'))

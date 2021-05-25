@@ -159,3 +159,5 @@ return [
         'content.en'            => 'content in english'
     ],
 ];
+
+?>

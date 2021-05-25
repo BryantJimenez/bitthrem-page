@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Article;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ArticleUpdateRequest;
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $articles=Article::orderBy('id', 'DESC')->get();
+        $articles=Article::with(['category'])->orderBy('id', 'DESC')->get();
         return view('admin.articles.index', compact('articles'));
     }
 
@@ -25,7 +26,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('admin.articles.create');
+        $categories=Category::where([['state', '1'], ['type','3']])->orderBy('name', 'ASC')->get();
+        return view('admin.articles.create', compact('categories'));
     }
 
     /**
@@ -35,7 +37,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(ArticleStoreRequest $request) {
-        $data=array('title' => request('title'), 'content' => request('content'));
+        $category=Category::where('slug', request('category_id'))->firstOrFail();
+        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
         $article=Article::create($data);
 
         if ($article) {
@@ -58,7 +61,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article) {
-        return view('admin.articles.edit', compact("article"));
+        $categories=Category::where([['state', '1'], ['type','3']])->orderBy('name', 'ASC')->get();
+        return view('admin.articles.edit', compact("categories", "article"));
     }
 
     /**
@@ -69,7 +73,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(ArticleUpdateRequest $request, Article $article) {
-        $data=array('title' => request('title'), 'content' => request('content'));
+        $category=Category::where('slug', request('category_id'))->firstOrFail();
+        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
         $article->fill($data)->save();
 
         if ($article) {

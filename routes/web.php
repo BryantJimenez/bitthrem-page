@@ -21,6 +21,11 @@ Route::get('/usuarios/email', 'AdminController@emailVerifyAdmin');
 /////////////////////////////////////////////// WEB ////////////////////////////////////////////////
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 	Route::get('/', 'WebController@index')->name('home');
+	Route::get(LaravelLocalization::transRoute('routes.web.about'), 'WebController@about')->name('web.about');
+	Route::get(LaravelLocalization::transRoute('routes.web.prices'), 'WebController@prices')->name('web.prices');
+	Route::get(LaravelLocalization::transRoute('routes.web.referral-program'), 'WebController@referrals')->name('web.referrals');
+	// Contacto
+	Route::post('/contacto', 'WebController@send')->name('web.contact.send');
 });
 
 
@@ -63,6 +68,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::delete('/admin/preguntas/{question:slug}', 'QuestionController@destroy')->name('preguntas.delete')->middleware('permission:questions.delete');
 	Route::put('/admin/preguntas/{question:slug}/activar', 'QuestionController@activate')->name('preguntas.activate')->middleware('permission:questions.active');
 	Route::put('/admin/preguntas/{question:slug}/desactivar', 'QuestionController@deactivate')->name('preguntas.deactivate')->middleware('permission:questions.deactive');
+
+	// Centro de Ayudas
+	Route::get('/admin/ayudas', 'HelpController@index')->name('ayudas.index')->middleware('permission:helps.index');
+	Route::get('/admin/ayudas/registrar', 'HelpController@create')->name('ayudas.create')->middleware('permission:helps.create');
+	Route::post('/admin/ayudas', 'HelpController@store')->name('ayudas.store')->middleware('permission:helps.create');
+	Route::get('/admin/ayudas/{help:slug}/editar', 'HelpController@edit')->name('ayudas.edit')->middleware('permission:helps.edit');
+	Route::put('/admin/ayudas/{help:slug}', 'HelpController@update')->name('ayudas.update')->middleware('permission:helps.edit');
+	Route::delete('/admin/ayudas/{help:slug}', 'HelpController@destroy')->name('ayudas.delete')->middleware('permission:helps.delete');
+	Route::put('/admin/ayudas/{help:slug}/activar', 'HelpController@activate')->name('ayudas.activate')->middleware('permission:helps.active');
+	Route::put('/admin/ayudas/{help:slug}/desactivar', 'HelpController@deactivate')->name('ayudas.deactivate')->middleware('permission:helps.deactive');
 
 	// Articulos
 	Route::get('/admin/articulos', 'ArticleController@index')->name('articulos.index')->middleware('permission:articles.index');

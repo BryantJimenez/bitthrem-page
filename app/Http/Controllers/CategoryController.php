@@ -35,7 +35,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryStoreRequest $request) {
-        $data=array('name' => request('name'));
+        $data=array('name' => request('name'), 'type' => request('type'));
         $category=Category::create($data);
 
         if ($category) {
@@ -63,7 +63,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryUpdateRequest $request, Category $category) {
-        $data=array('name' => request('name'));
+        $data=array('name' => request('name'), 'type' => request('type'));
         $category->fill($data)->save();
 
         if ($category) {

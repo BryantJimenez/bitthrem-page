@@ -28,7 +28,7 @@ class SettingUpdateRequest extends FormRequest
             'email' => 'required|string|email|max:191',
             'address' => 'required|string|min:2|max:191',
             'facebook' => 'nullable|string|min:2|max:191',
-            'twitter' => 'nullable|string|min:2|max:191',
+            'youtube' => 'nullable|string|min:2|max:191',
             'instagram' => 'nullable|string|min:2|max:191'
         ];
     }

@@ -249,6 +249,16 @@ $(document).ready(function(){
 					required: true,
 					minlength: 2,
 					maxlength: 191
+				},
+
+				type: {
+					required: true
+				}
+			},
+			messages:
+			{
+				type: {
+					required: 'Seleccione una opción.'
 				}
 			},
 			submitHandler: function(form) {
@@ -291,8 +301,59 @@ $(document).ready(function(){
 					maxlength: 1000
 				}
 			},
+			messages:
+			{
+				category_id: {
+					required: 'Seleccione una opción.'
+				}
+			},
 			submitHandler: function(form) {
 				$("button[action='question']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	$("button[action='help']").on("click",function(){
+		$("#formHelp").validate({
+			rules:
+			{
+				category_id: {
+					required: true
+				},
+
+				"title[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"title[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"content[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				},
+
+				"content[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 65000
+				}
+			},
+			messages:
+			{
+				category_id: {
+					required: 'Seleccione una opción.'
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='help']").attr('disabled', true);
 				form.submit();
 			}
 		});
@@ -302,7 +363,11 @@ $(document).ready(function(){
 	$("button[action='article']").on("click",function(){
 		$("#formArticle").validate({
 			rules:
-			{	
+			{
+				category_id: {
+					required: true
+				},
+
 				image: {
 					required: true
 				},
@@ -333,6 +398,10 @@ $(document).ready(function(){
 			},
 			messages:
 			{
+				category_id: {
+					required: 'Seleccione una opción.'
+				},
+
 				image: {
 					required: 'Seleccione una imagen.'
 				}
@@ -347,7 +416,11 @@ $(document).ready(function(){
 	$("button[action='article']").on("click",function(){
 		$("#formArticleEdit").validate({
 			rules:
-			{	
+			{
+				category_id: {
+					required: true
+				},
+
 				image: {
 					required: false
 				},
@@ -378,6 +451,10 @@ $(document).ready(function(){
 			},
 			messages:
 			{
+				category_id: {
+					required: 'Seleccione una opción.'
+				},
+
 				image: {
 					required: 'Seleccione una imagen.'
 				}
@@ -419,7 +496,7 @@ $(document).ready(function(){
 					maxlength: 191
 				},
 
-				twitter: {
+				youtube: {
 					required: false,
 					minlength: 2,
 					maxlength: 191
@@ -433,6 +510,103 @@ $(document).ready(function(){
 			},
 			submitHandler: function(form) {
 				$("button[action='setting']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	// Idiomas
+	$("button[action='language']").on("click",function(){
+		$("#formLanguage").validate({
+			rules:
+			{
+				name: {
+					required: true,
+					minlength: 1,
+					maxlength: 191
+				},
+
+				locale: {
+					required: true,
+					minlength: 1,
+					maxlength: 191
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='language']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	// Traducciones
+	$("button[action='translation']").on("click",function(){
+		$("#formTranslation").validate({
+			rules:
+			{
+				group: {
+					required: false,
+					minlength: 1,
+					maxlength: 191
+				},
+
+				key: {
+					required: true,
+					minlength: 1,
+					maxlength: 191
+				},
+
+				value: {
+					required: true,
+					minlength: 1,
+					maxlength: 191
+				},
+
+				namespace: {
+					required: true,
+					minlength: 1,
+					maxlength: 191
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='translation']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+	
+	// Formulario de Contacto (Web)
+	$("button[action='contact']").on("click",function(){
+		$("#formContactWeb").validate({
+			rules:
+			{
+				name: {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				email: {
+					required: true,
+					email: true,
+					minlength: 5,
+					maxlength: 191
+				},
+
+				subject: {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				message: {
+					required: true,
+					minlength: 5,
+					maxlength: 65000
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='contact']").attr('disabled', true);
 				form.submit();
 			}
 		});

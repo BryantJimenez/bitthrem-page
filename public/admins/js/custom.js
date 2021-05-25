@@ -323,6 +323,16 @@ function activeQuestion(slug) {
   $('#formActiveQuestion').attr('action', '/admin/preguntas/' + slug + '/activar');
 }
 
+function deactiveHelp(slug) {
+  $("#deactiveHelp").modal();
+  $('#formDeactiveHelp').attr('action', '/admin/ayudas/' + slug + '/desactivar');
+}
+
+function activeHelp(slug) {
+  $("#activeHelp").modal();
+  $('#formActiveHelp').attr('action', '/admin/ayudas/' + slug + '/activar');
+}
+
 function deactiveArticle(slug) {
   $("#deactiveArticle").modal();
   $('#formDeactiveArticle').attr('action', '/admin/articulos/' + slug + '/desactivar');
@@ -347,6 +357,11 @@ function deleteCategory(slug) {
 function deleteQuestion(slug) {
   $("#deleteQuestion").modal();
   $('#formDeleteQuestion').attr('action', '/admin/preguntas/' + slug);
+}
+
+function deleteHelp(slug) {
+  $("#deleteHelp").modal();
+  $('#formDeleteHelp').attr('action', '/admin/ayudas/' + slug);
 }
 
 function deleteArticle(slug) {

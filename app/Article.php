@@ -11,7 +11,7 @@ class Article extends Model
 {
 	use HasSlug, HasTranslations;
 
-    protected $fillable = ['title', 'slug', 'content', 'image', 'state'];
+    protected $fillable = ['title', 'slug', 'content', 'image', 'category_id', 'state'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -19,4 +19,8 @@ class Article extends Model
     }
 
     public $translatable = ['title', 'content'];
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }

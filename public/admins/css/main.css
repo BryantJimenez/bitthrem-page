@@ -2632,6 +2632,30 @@ text.apexcharts-datalabel-label {
   font-size: 16px !important;
 }
 
-.form-control.goals {
-  height: 38px !important;
+#app .w-4 {
+  width: 1rem;
+}
+
+#app .h-4 {
+  height: 1rem;
+}
+
+#app .fill-current {
+  fill: currentColor;
+}
+
+#app .cursor-pointer {
+  cursor: pointer;
+}
+
+#app .table .flex {
+  display: flex;
+  align-items: center;
+}
+
+#app .table .flex textarea {
+  border: none;
+  outline: none;
+  padding: .5rem .75rem;
+  min-height: 40px;
 }

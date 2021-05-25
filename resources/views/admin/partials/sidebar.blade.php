@@ -50,11 +50,31 @@
             </li>
             @endcan
 
+            @can('helps.index')
+            <li class="menu {{ active('admin/ayudas', 0) }}">
+                <a href="{{ route('ayudas.index') }}" aria-expanded="{{ menu_expanded('admin/ayudas', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-info-circle"></i> Centro de Ayuda</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
             @can('articles.index')
             <li class="menu {{ active('admin/articulos', 0) }}">
                 <a href="{{ route('articulos.index') }}" aria-expanded="{{ menu_expanded('admin/articulos', 0) }}" class="dropdown-toggle">
                     <div class="">
                         <span><i class="fa fa-file"></i> Artículos</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
+            @can('languages.index')
+            <li class="menu {{ active('admin/idiomas', 0) }}">
+                <a href="{{ route('languages.index') }}" aria-expanded="{{ menu_expanded('admin/idiomas', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-language"></i> Idiomas</span>
                     </div>
                 </a>
             </li>

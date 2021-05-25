@@ -157,3 +157,27 @@ function image_exist($file_route, $image, $user_image=false, $large=true) {
 
 	return $img;
 }
+
+function typeCategory($type, $badge=false) {
+	if ($badge) {
+		if ($type==1) {
+			return '<span class="badge badge-primary">Preguntas Frecuentes</span>';
+		} elseif ($type==2) {
+			return '<span class="badge badge-primary">Centro de Ayuda</span>';
+		} elseif ($type==3) {
+			return '<span class="badge badge-primary">Blog</span>';
+		} else {
+			return '<span class="badge badge-dark">Desconocido</span>';
+		}
+	} else {
+		if ($type==1) {
+			return 'Preguntas Frecuentes';
+		} elseif ($type==2) {
+			return 'Centro de Ayuda';
+		} elseif ($type==3) {
+			return 'Blog';
+		} else {
+			return 'Desconocido';
+		}
+	}
+}

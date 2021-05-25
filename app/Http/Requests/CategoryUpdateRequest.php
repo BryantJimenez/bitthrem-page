@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use CodeZero\UniqueTranslation\UniqueTranslationRule;
 
 class CategoryUpdateRequest extends FormRequest
@@ -25,7 +27,8 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name.*' => 'required|string|min:2|max:191|'.UniqueTranslationRule::for('categories')->ignore($this->category->slug, 'slug')
+            'name.*' => 'required|string|min:2|max:191|'.UniqueTranslationRule::for('categories')->ignore($this->category->slug, 'slug')->where('type', $this->type),
+            'type' => 'required|'.Rule::in(['1', '2', '3'])
         ];
     }
 }

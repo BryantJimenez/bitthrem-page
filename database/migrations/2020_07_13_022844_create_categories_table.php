@@ -17,9 +17,13 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->longText('name');
             $table->string('slug')->unique();
+            $table->enum('type', [1, 2, 3])->default(1);
             $table->enum('state', [0, 1])->default(1);
             $table->timestamps();
             $table->softDeletes();
+
+            // Index
+            $table->unique(['name', 'type'], 'name_type_unique');
         });
     }
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Category;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ArticleStoreRequest extends FormRequest
 {
@@ -23,10 +26,12 @@ class ArticleStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $categories=Category::where('state', '1')->get()->pluck('slug');
         return [
             'image' => 'required|file|mimetypes:image/*',
             'title.*' => 'required|string|min:2|max:191|unique_translation:articles,title',
-            'content.*' => 'required|string|min:2|max:65000'
+            'content.*' => 'required|string|min:2|max:65000',
+            'category_id' => 'required|'.Rule::in($categories)
         ];
     }
 }
