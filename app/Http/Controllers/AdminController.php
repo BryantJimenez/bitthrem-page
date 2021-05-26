@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Best;
+use App\Help;
 use App\Article;
+use App\Question;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,8 +21,11 @@ class AdminController extends Controller
      */
     public function index() {
         $users=User::count();
+        $bests=Best::count();
+        $helps=Help::count();
         $articles=Article::count();
-        return view('admin.home', compact('users', 'articles'));
+        $questions=Question::count();
+        return view('admin.home', compact('users', 'bests', 'helps', 'articles', 'questions'));
     }
 
     public function profile() {

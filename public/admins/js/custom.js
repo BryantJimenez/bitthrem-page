@@ -343,6 +343,16 @@ function activeArticle(slug) {
   $('#formActiveArticle').attr('action', '/admin/articulos/' + slug + '/activar');
 }
 
+function deactiveBest(slug) {
+  $("#deactiveBest").modal();
+  $('#formDeactiveBest').attr('action', '/admin/mejores/' + slug + '/desactivar');
+}
+
+function activeBest(slug) {
+  $("#activeBest").modal();
+  $('#formActiveBest').attr('action', '/admin/mejores/' + slug + '/activar');
+}
+
 //funciones para preguntar al eliminar
 function deleteUser(slug) {
   $("#deleteUser").modal();
@@ -367,4 +377,9 @@ function deleteHelp(slug) {
 function deleteArticle(slug) {
   $("#deleteArticle").modal();
   $('#formDeleteArticle').attr('action', '/admin/articulos/' + slug);
+}
+
+function deleteBest(slug) {
+  $("#deleteBest").modal();
+  $('#formDeleteBest').attr('action', '/admin/mejores/' + slug);
 }

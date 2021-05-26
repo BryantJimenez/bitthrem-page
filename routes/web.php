@@ -89,6 +89,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::put('/admin/articulos/{article:slug}/activar', 'ArticleController@activate')->name('articulos.activate')->middleware('permission:articles.active');
 	Route::put('/admin/articulos/{article:slug}/desactivar', 'ArticleController@deactivate')->name('articulos.deactivate')->middleware('permission:articles.deactive');
 
+	// Mejores Usuarios
+	Route::get('/admin/mejores', 'BestController@index')->name('mejores.index')->middleware('permission:bests.index');
+	Route::get('/admin/mejores/registrar', 'BestController@create')->name('mejores.create')->middleware('permission:bests.create');
+	Route::post('/admin/mejores', 'BestController@store')->name('mejores.store')->middleware('permission:bests.create');
+	Route::get('/admin/mejores/{best:slug}/editar', 'BestController@edit')->name('mejores.edit')->middleware('permission:bests.edit');
+	Route::put('/admin/mejores/{best:slug}', 'BestController@update')->name('mejores.update')->middleware('permission:bests.edit');
+	Route::delete('/admin/mejores/{best:slug}', 'BestController@destroy')->name('mejores.delete')->middleware('permission:bests.delete');
+	Route::put('/admin/mejores/{best:slug}/activar', 'BestController@activate')->name('mejores.activate')->middleware('permission:bests.active');
+	Route::put('/admin/mejores/{best:slug}/desactivar', 'BestController@deactivate')->name('mejores.deactivate')->middleware('permission:bests.deactive');
+
 	// Ajustes
 	Route::get('/admin/ajustes', 'SettingController@edit')->name('ajustes.edit')->middleware('permission:settings.edit');
 	Route::put('/admin/ajustes', 'SettingController@update')->name('ajustes.update')->middleware('permission:settings.edit');

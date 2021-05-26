@@ -70,6 +70,16 @@
             </li>
             @endcan
 
+            @can('bests.index')
+            <li class="menu {{ active('admin/mejores', 0) }}">
+                <a href="{{ route('mejores.index') }}" aria-expanded="{{ menu_expanded('admin/mejores', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-trophy"></i> Mejores Usuarios</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+
             @can('languages.index')
             <li class="menu {{ active('admin/idiomas', 0) }}">
                 <a href="{{ route('languages.index') }}" aria-expanded="{{ menu_expanded('admin/idiomas', 0) }}" class="dropdown-toggle">

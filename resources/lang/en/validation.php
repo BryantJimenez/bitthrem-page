@@ -156,7 +156,8 @@ return [
         'title.es'              => 'title',
         'title.en'              => 'title in english',
         'content.es'            => 'content',
-        'content.en'            => 'content in english'
+        'content.en'            => 'content in english',
+        'country_id'            => 'country'
     ],
 ];
 

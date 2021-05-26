@@ -466,6 +466,44 @@ $(document).ready(function(){
 		});
 	});
 
+	// Mejores Usuarios
+	$("button[action='best']").on("click",function(){
+		$("#formBest").validate({
+			rules:
+			{
+				photo: {
+					required: false
+				},
+
+				name: {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				lastname: {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				country_id: {
+					required: true
+				}
+			},
+			messages:
+			{
+				country_id: {
+					required: 'Seleccione una opción.'
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='best']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
 	// Ajustes
 	$("button[action='setting']").on("click",function(){
 		$("#formSetting").validate({

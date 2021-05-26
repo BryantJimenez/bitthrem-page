@@ -58,9 +58,21 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'articles.active']);
         Permission::create(['name' => 'articles.deactive']);
 
+        // Permisos de Mejores Usuarios
+        Permission::create(['name' => 'bests.index']);
+        Permission::create(['name' => 'bests.create']);
+        Permission::create(['name' => 'bests.edit']);
+        Permission::create(['name' => 'bests.delete']);
+        Permission::create(['name' => 'bests.active']);
+        Permission::create(['name' => 'bests.deactive']);
+
         // Permisos de Idiomas
         Permission::create(['name' => 'languages.index']);
         Permission::create(['name' => 'languages.create']);
+
+        // Permisos de Traducciones
+        Permission::create(['name' => 'translations.index']);
+        Permission::create(['name' => 'translations.create']);
 
         // Permisos de Ajustes
         Permission::create(['name' => 'settings.edit']);

@@ -161,7 +161,8 @@ return [
         'title.es'              => 'título',
         'title.en'              => 'título en inglés',
         'content.es'            => 'contenido',
-        'content.en'            => 'contenido en inglés'
+        'content.en'            => 'contenido en inglés',
+        'country_id'            => 'país'
     ],
 ];
 ?>
