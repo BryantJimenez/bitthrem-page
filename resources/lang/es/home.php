@@ -23,7 +23,11 @@ return [
         "first card" => "<strong>Ingresos pasivos:</strong> con nuestros planes de inversión obtendra el 0.1% al 2.0% diariamente durante el tiempo que estipule el plan activo de forma automatica, y lo mejor es que recibirás notificaciones cada vez que se acredite un ROI de ganancia.",
         'second card' => '<strong>Retorno de la inversión:</strong> obtendrás el capital invertido al finalizar el periodo de tiempo que fije tu plan de preferencia.',
         'third card' => '<strong>Retiros diarios:</strong> contamos con un sistema que garantiza los retiros de dinero a diarios y directo a tu billetera.',
-        'fourth card' => '<strong>Smart investiment:</strong> Tenemos un equipo de profesionales preparado en cada área de trabajo para asegurar un margen de ganancia estable.'
+        'fourth card' => '<strong>Smart investiment:</strong> Tenemos un equipo de profesionales preparado en cada área de trabajo para asegurar un margen de ganancia estable.',
+        'image first' => 'Ingresos Pasivos',
+        'image second' => 'Retorno de la Inversión',
+        'image third' => 'Retiros Diarios',
+        'image fourth' => 'Smart Investment'
     ],
 
     'features' => [

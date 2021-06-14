@@ -23,7 +23,11 @@ return [
         "first card" => "<strong>Passive income:</strong> with our investment plans you will get 0.1% to 2.0% daily for the time stipulated by the active plan automatically, and the best thing is that you will receive notifications every time an ROI of gain.",
         'second card' => '<strong>Return on investment:</strong> you will obtain the invested capital at the end of the period of time that your preferred plan establishes.',
         'third card' => '<strong>Daily withdrawals:</strong> we have a system that guarantees withdrawals of money daily and directly to your wallet.',
-        'fourth card' => '<strong>Smart investiment:</strong> We have a team of professionals prepared in each work area to ensure a stable profit margin.'
+        'fourth card' => '<strong>Smart investiment:</strong> We have a team of professionals prepared in each work area to ensure a stable profit margin.',
+        'image first' => 'Passive Income',
+        'image second' => 'Return of investment',
+        'image third' => 'Daily Withdrawals',
+        'image fourth' => 'Smart Investment'
     ],
 
     'features' => [

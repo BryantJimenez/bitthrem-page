@@ -234,8 +234,15 @@ $(document).ready(function(){
 		});
 	});
 
-	// Categorias
+	// Categorias (Registrar)
 	$("button[action='category']").on("click",function(){
+		if ($("#formCategory").length) {
+			$("#formCategory").validate().destroy();
+		}
+		var help=false;
+		if ($('select[name="type"]').val()=="2") {
+			help=true;
+		}
 		$("#formCategory").validate({
 			rules:
 			{
@@ -253,6 +260,83 @@ $(document).ready(function(){
 
 				type: {
 					required: true
+				},
+
+				icon: {
+					required: help
+				},
+
+				"description[es]": {
+					required: help,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"description[en]": {
+					required: help,
+					minlength: 2,
+					maxlength: 191
+				}
+			},
+			messages:
+			{
+				type: {
+					required: 'Seleccione una opción.'
+				},
+
+				icon: {
+					required: 'Seleccione una imagen.'
+				}
+			},
+			submitHandler: function(form) {
+				$("button[action='category']").attr('disabled', true);
+				form.submit();
+			}
+		});
+	});
+
+	// Categorias (Editar)
+	$("button[action='category']").on("click",function(){
+		if ($("#formCategoryEdit").length) {
+			$("#formCategoryEdit").validate().destroy();
+		}
+		var help=false;
+		if ($('select[name="type"]').val()=="2") {
+			help=true;
+		}
+		$("#formCategoryEdit").validate({
+			rules:
+			{
+				"name[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"name[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				type: {
+					required: true
+				},
+
+				icon: {
+					required: false
+				},
+
+				"description[es]": {
+					required: help,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"description[en]": {
+					required: help,
+					minlength: 2,
+					maxlength: 191
 				}
 			},
 			messages:
@@ -344,6 +428,18 @@ $(document).ready(function(){
 					required: true,
 					minlength: 2,
 					maxlength: 65000
+				},
+
+				"keywords[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"keywords[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
 				}
 			},
 			messages:
@@ -394,6 +490,18 @@ $(document).ready(function(){
 					required: true,
 					minlength: 2,
 					maxlength: 65000
+				},
+
+				"keywords[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"keywords[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
 				}
 			},
 			messages:
@@ -447,6 +555,18 @@ $(document).ready(function(){
 					required: true,
 					minlength: 2,
 					maxlength: 65000
+				},
+
+				"keywords[es]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				"keywords[en]": {
+					required: true,
+					minlength: 2,
+					maxlength: 191
 				}
 			},
 			messages:
@@ -489,6 +609,27 @@ $(document).ready(function(){
 
 				country_id: {
 					required: true
+				},
+
+				phone_code: {
+					required: false,
+					number: false,
+					minlength: 5,
+					maxlength: 20
+				},
+
+				email: {
+					required: true,
+					email: true,
+					minlength: 5,
+					maxlength: 191
+				},
+
+				url: {
+					required: true,
+					url: true,
+					minlength: 2,
+					maxlength: 191
 				}
 			},
 			messages:
@@ -509,8 +650,9 @@ $(document).ready(function(){
 		$("#formSetting").validate({
 			rules:
 			{
-				phone: {
+				phone_code: {
 					required: true,
+					number: false,
 					minlength: 5,
 					maxlength: 20
 				},
@@ -530,18 +672,35 @@ $(document).ready(function(){
 
 				facebook: {
 					required: false,
+					url: true,
 					minlength: 2,
 					maxlength: 191
 				},
 
 				youtube: {
 					required: false,
+					url: true,
 					minlength: 2,
 					maxlength: 191
 				},
 
 				instagram: {
 					required: false,
+					url: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				comunity_facebook: {
+					required: false,
+					url: true,
+					minlength: 2,
+					maxlength: 191
+				},
+
+				comunity_whatsapp: {
+					required: false,
+					url: true,
 					minlength: 2,
 					maxlength: 191
 				}

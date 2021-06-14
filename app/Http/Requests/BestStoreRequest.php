@@ -31,7 +31,10 @@ class BestStoreRequest extends FormRequest
       'photo' => 'nullable|file|mimetypes:image/*',
       'name' => 'required|string|min:2|max:191',
       'lastname' => 'required|string|min:2|max:191',
-      'country_id' => 'required|'.Rule::in($countries)
+      'country_id' => 'required|'.Rule::in($countries),
+      'phone' => 'nullable|string|min:5|max:15',
+      'email' => 'required|string|email|max:191',
+      'url' => 'required|url|min:5|max:191'
     ];
   }
 }

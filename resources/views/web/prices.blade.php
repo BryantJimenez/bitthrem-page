@@ -1,251 +1,264 @@
 @extends('layouts.web')
 
-@section('title', 'Precios de Planes')
+@section('title', trans('web.title.prices'))
+@section('og:description', 'Earn through our investment plans or totally free. Come and meet us!')
+@section('twitter:card', 'summary_large_image')
+
+@section('links')
+<link rel="stylesheet" href="{{ asset('/admins/vendor/lobibox/Lobibox.min.css') }}">
+@endsection
 
 @section('content')
 
-<section class="hero-banner position-relative vh-100">
-	<div class="container">
-		<div class="row vh-100 align-items-center justify-content-start">
+<section class="hero-plans-banner overflow-hidden position-relative pt-md-5 pt-3">
+	<div class="container position-relative">
+		<div class="row align-items-center">
 			<div class="col-12">
-				<h3 class="text-white text-center font-weight-bold">@lang('prices.banner.title')</h3>
+				<h3 class="h2 text-white text-center font-weight-bold">@lang('prices.banner.title')</h3>
 			</div>
 		</div>
 	</div>
+
+	<div class="light-animation">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </section>
 
-<section class="section-plans bg-gray-light py-md-5 py-3">
+<section class="section-plans bg-gray-dark pb-md-5 pb-3">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan first border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/bronce.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/bronce.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.bronze')" title="@lang('prices.plans.bronze')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Bronze</h5>
+						<h5 class="h2 card-title font-weight-bold">@lang('prices.plans.bronze')</h5>
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">20$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">200$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration bronze')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan second border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/bronce-2.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/bronce-2.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.bronze two')" title="@lang('prices.plans.bronze two')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Bronze two</h5>
+						<h5 class="h2 card-title font-weight-bold">@lang('prices.plans.bronze two')</h5>
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">300$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">500$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration bronze two')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan third border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/plata.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/plata.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.silver')" title="@lang('prices.plans.silver')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Silver</h5>
+						<h5 class="h2 card-title font-weight-bold">@lang('prices.plans.silver')</h5>
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">600$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">800$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration silver')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan fourth border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/plata.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/plata.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.silver two')" title="@lang('prices.plans.silver two')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Silver two</h5>
+						<h5 class="h2 card-title font-weight-bold">@lang('prices.plans.silver two')</h5>
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">900$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">2000$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration silver two')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan fifth border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/oro.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/oro.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.gold')" title="@lang('prices.plans.gold')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Gold</h5>
+						<h5 class="h2 card-title font-weight-bold">@lang('prices.plans.gold')</h5>
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">2000$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">5000$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration gold')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="card card-plan first border-0 mb-5">
+				<div class="card card-plan sixth border-0 mb-4">
 					<div class="card-body">
-						<div class="d-flex">
-							<img src="{{ asset('/web/img/prices/ultra.png') }}" class="w-75 mx-auto">
+						<div class="d-flex px-0 px-lg-3">
+							<img src="{{ asset('/web/img/prices/ultra.png') }}" class="w-75 mx-auto" alt="@lang('prices.plans.ultra')" title="@lang('prices.plans.ultra')">
 						</div>
-						<h5 class="h4 card-title font-weight-bold">Ultra</h5>
+						<img src="{{ asset('/web/img/prices/ultra-title.png') }}" height="34" class="ultra mt-1 mb-3" alt="@lang('prices.plans.ultra')" title="@lang('prices.plans.ultra')">
+						{{-- <h5 class="h4 card-title font-weight-bold">Ultra</h5> --}}
 						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">
-									<div class="col-lg-5 col-12">
-										<p class="card-text text-white">Inversion Minima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text text-white">@lang('prices.plans.min')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text text-white font-weight-600">1000$</p>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-lg-12 col-md-6 col-sm-12 col-6">
+							<div class="col-sm-12 col-6">
 								<div class="row">	
-									<div class="col-lg-5 col-12">
-										<p class="card-text">Inversion Maxima</p>
+									<div class="col-md-5 col-12">
+										<p class="h6 card-text">@lang('prices.plans.max')</p>
 									</div>
-									<div class="col-lg-7 col-12">
+									<div class="col-md-7 col-12">
 										<p class="h1 card-text font-weight-600">10000$</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<hr>
-						<p class="text-center font-weight-bold mb-3">Duracion: de 06 meses</p>
+						<p class="text-center font-weight-bold mb-3">@lang('prices.plans.duration ultra')</p>
 						<div class="text-center">
-							<a href="javascript:void(0);" class="btn rounded-pill px-4">Comprar</a>
+							<a href="https://app.bitthrem.com/dashboard/mplans" class="btn rounded-pill px-4">@lang('prices.plans.buy')</a>
 						</div>
 					</div>
 				</div>
@@ -254,7 +267,7 @@
 	</div>
 </section>
 
-<section class="section-questions bg-gray-light py-md-5 py-3">
+<section class="section-questions bg-gray-dark py-md-5 py-3">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -263,7 +276,7 @@
 
 			<div class="col-12">
 				<div class="accordion" id="question-accordion">
-					@foreach($questions as $question)
+					@foreach($questions->take(3) as $question)
 					<div class="card border-0 mb-4">
 						<div class="card-header bg-white border-0 d-flex justify-content-between p-4" data-toggle="collapse" data-target="{{ '#question-collapse-'.$question->slug }}" aria-expanded="false" aria-controls="{{ 'question-collapse-'.$question->slug }}" id="{{ 'question-heading-'.$question->slug }}">
 							<p class="text-muted collapsed w-100 mb-0 mr-3">{{ $question->question }}</p>
@@ -281,13 +294,13 @@
 			</div>
 
 			<div class="col-12 text-right">
-				<a href="javascript:void(0);" class="btn btn-transparent rounded-pill px-4">@lang('prices.question.button')</a>
+				<a href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), route('web.faq'), [], true) }}" hreflang="{{ app()->getLocale() }}" class="btn btn-transparent rounded-pill px-4">@lang('prices.question.button')</a>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section-contact bg-gray-light py-md-5 py-3">
+<section class="section-contact bg-gray-dark py-md-5 py-3">
 	<div class="container pt-md-5 pt-0">
 		<div class="row">
 			<div class="col-12 mb-md-5 mb-3">
@@ -359,4 +372,5 @@
 <script type="text/javascript" src="{{ asset('/admins/vendor/validate/messages_es.js') }}"></script>
 @endif
 <script type="text/javascript" src="{{ asset('/admins/js/validate.js') }}"></script>
+<script src="{{ asset('/admins/vendor/lobibox/Lobibox.js') }}"></script>
 @endsection

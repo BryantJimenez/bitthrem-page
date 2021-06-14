@@ -281,6 +281,49 @@ $(document).ready(function() {
     CKEDITOR.config.width='auto';
     CKEDITOR.replace('content_article_en');
   }
+
+  // International Telephone Input Jquery
+  if ($('.international-phone').length) {
+    var international_phone=document.querySelector(".international-phone"), errorMsg=document.querySelector("#international-phone-error-msg"), validMsg=document.querySelector("#international-phone-valid-msg");
+
+    // here, the index maps to the error code returned from getValidationError - see readme
+    var errorMap = ["Número Invalido", "Código de País Invalido", "Muy Corto", "Muy Largo", "Número Invalido"];
+
+    var iti = window.intlTelInput(international_phone, {
+      utilsScript: "/admins/vendor/intltelinput/js/utils.js"
+    });
+
+    var reset = function() {
+      international_phone.classList.remove("is-invalid");
+      errorMsg.innerHTML = "";
+      errorMsg.classList.add("d-none");
+      validMsg.classList.add("d-none");
+    };
+
+    // on blur: validate
+    international_phone.addEventListener('blur', function() {
+      reset();
+      $('button[type="submit"]').attr('disabled', false);
+      if (international_phone.value.trim()) {
+        if (iti.isValidNumber()) {
+          validMsg.classList.remove("d-none");
+          $('button[type="submit"]').attr('disabled', false);
+          $('#international-phone-complete').val(iti.getNumber());
+        } else {
+          international_phone.classList.add("is-invalid");
+          var errorCode = iti.getValidationError();
+          errorMsg.innerHTML = errorMap[errorCode];
+          errorMsg.classList.remove("d-none");
+          $('button[type="submit"]').attr('disabled', true);
+          $('#international-phone-complete').val('');
+        }
+      }
+    });
+
+    // on keyup / change flag: reset
+    international_phone.addEventListener('change', reset);
+    international_phone.addEventListener('keyup', reset);
+  }
 });
 
 // funcion para cambiar el input hidden al cambiar el switch de estado
@@ -383,3 +426,14 @@ function deleteBest(slug) {
   $("#deleteBest").modal();
   $('#formDeleteBest').attr('action', '/admin/mejores/' + slug);
 }
+
+// funcion para cambiar el tipo de categoria
+$('#select_type_help').change(function(event) {
+  if ($(this).val()=="2") {
+    $(".categories_helps textarea").attr('disabled', false);
+    $(".categories_helps").removeClass("d-none");
+  } else {
+    $(".categories_helps").addClass("d-none");
+    $(".categories_helps textarea").attr('disabled', true);
+  }
+});

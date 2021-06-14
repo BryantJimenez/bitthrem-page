@@ -12,7 +12,7 @@ class SettingsSeeder extends Seeder
     public function run()
     {
         $settings = [
-    		['id' => 1, 'email' => 'support@bitthrem.com', 'address' => 'Sherbrooke Ouest QC H4A 1H3 Montreal, Quebec, Canada', 'phone' => '+1 438 7953250', 'facebook' => 'https://facebook.com', 'youtube' => 'https://youtube.com', 'instagram' => 'https://instagram.com']
+    		['id' => 1, 'email' => 'support@bitthrem.com', 'address' => 'Sherbrooke Ouest QC H4A 1H3 Montreal, Quebec, Canada', 'phone' => '+1 438 7953250', 'facebook' => 'https://facebook.com', 'youtube' => 'https://youtube.com', 'instagram' => 'https://instagram.com', 'comunity_facebook' => 'https://facebook.com', 'comunity_whatsapp' => 'https://whatsapp.com']
     	];
 
     	DB::table('settings')->insert($settings);

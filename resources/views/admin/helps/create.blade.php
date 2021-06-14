@@ -61,6 +61,25 @@
 								</div>
 
 								<div class="form-group col-12">
+									<label class="col-form-label">Keywords<b class="text-danger">*</b></label>
+									<input class="form-control @error('keywords.es') is-invalid @enderror" type="text" name="keywords[es]" required placeholder="Introduzca las palabras clave" value="{{ old('keywords.es') }}">
+								</div>
+
+								<div class="form-group col-12">
+									<label class="col-form-label">Keywords (Inglés)<b class="text-danger">*</b></label>
+									<input class="form-control @error('keywords.en') is-invalid @enderror" type="text" name="keywords[en]" required placeholder="Introduzca la traducción de las palabras clave" value="{{ old('keywords.en') }}" id="keywords_en">
+								</div>
+
+								<div class="form-group col-lg-6 col-md-6 col-12">
+									<label class="col-form-label">Estado<b class="text-danger">*</b></label>
+									<select class="form-control @error('state') is-invalid @enderror" name="state" required>
+										<option value="">Seleccione</option>
+										<option value="1" @if(old('state')=='1') selected @endif>Publicado</option>
+										<option value="0" @if(old('state')=='0') selected @endif>Borrador</option>
+									</select>
+								</div>
+
+								<div class="form-group col-12">
 									<div class="btn-group" role="group">
 										<button type="submit" class="btn btn-primary" action="help">Guardar</button>
 										<a href="{{ route('ayudas.index') }}" class="btn btn-secondary">Volver</a>

@@ -10,7 +10,7 @@ class Best extends Model
 {
 	use HasSlug;
 
-    protected $fillable = ['name', 'lastname', 'slug', 'photo', 'state', 'country_id'];
+    protected $fillable = ['name', 'lastname', 'slug', 'photo', 'email', 'phone', 'url', 'state', 'country_id'];
 
     public function getSlugOptions() : SlugOptions
     {

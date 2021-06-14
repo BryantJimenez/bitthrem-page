@@ -38,7 +38,7 @@ class BestController extends Controller
      */
     public function store(BestStoreRequest $request) {
         $country=Country::where('iso', request('country_id'))->firstOrFail();
-        $data=array('name' => request('name'), 'lastname' => request('lastname'), 'country_id' => $country->id);
+        $data=array('name' => request('name'), 'lastname' => request('lastname'), 'country_id' => $country->id, 'phone' => request('phone'), 'email' => request('email'), 'url' => request('url'));
         $best=Best::create($data);
 
         if ($best) {
@@ -75,7 +75,7 @@ class BestController extends Controller
      */
     public function update(BestUpdateRequest $request, Best $best) {
         $country=Country::where('iso', request('country_id'))->firstOrFail();
-        $data=array('name' => request('name'), 'lastname' => request('lastname'), 'country_id' => $country->id);
+        $data=array('name' => request('name'), 'lastname' => request('lastname'), 'country_id' => $country->id, 'phone' => request('phone'), 'email' => request('email'), 'url' => request('url'));
         $best->fill($data)->save();        
 
         if ($best) {

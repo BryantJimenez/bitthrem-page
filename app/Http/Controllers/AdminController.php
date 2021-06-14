@@ -10,6 +10,7 @@ use App\Question;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 use Auth;
 
 class AdminController extends Controller
@@ -75,5 +76,28 @@ class AdminController extends Controller
         } else {
             return "true";
         }
+    }
+
+    public function searchHelps(Request $request) {
+        $helps=Help::with(['category'])->where([['title', 'like', '%'.request('query').'%'], ['state', '1']])->orderBy('title', 'ASC')->get()->map(function ($help) {
+            if ($help['category']->state=="1") {
+                $route=new LaravelLocalization();
+                $route=$route->getURLFromRouteNameTranslated(request('lang'), 'routes.web.help', ['category:slug' => $help['category']->slug, 'help:slug' => $help->slug], true);
+                return array('data' => $route, 'value' => $help->translate('title', request('lang')));
+            }
+            return NULL;
+        })->reject(function ($help) {
+            return is_null($help);
+        })->values();
+        return response()->json(["suggestions" => $helps]);
+    }
+
+    public function searchArticles(Request $request) {
+        $articles=Article::where([['title', 'like', '%'.request('query').'%'], ['state', '1']])->orderBy('title', 'ASC')->get()->map(function ($article) {
+            $route=new LaravelLocalization();
+            $route=$route->getURLFromRouteNameTranslated(request('lang'), 'routes.web.article', ['article:slug' => $article->slug], true);
+            return array('data' => $route, 'value' => $article->translate('title', request('lang')));
+        });
+        return response()->json(["suggestions" => $articles]);
     }
 }

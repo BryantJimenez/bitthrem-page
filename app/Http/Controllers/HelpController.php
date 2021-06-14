@@ -26,7 +26,7 @@ class HelpController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $categories=Category::where([['state', '1'], ['type','2']])->orderBy('name', 'ASC')->get();
+        $categories=Category::where([['state', '1'], ['type', '2']])->orderBy('name', 'ASC')->get();
         return view('admin.helps.create', compact('categories'));
     }
 
@@ -38,7 +38,7 @@ class HelpController extends Controller
      */
     public function store(HelpStoreRequest $request) {
         $category=Category::where('slug', request('category_id'))->firstOrFail();
-        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
+        $data=array('title' => request('title'), 'content' => request('content'), 'keywords' => request('keywords'), 'state' => request('state'), 'category_id' => $category->id);
         $help=Help::create($data);
 
         if ($help) {
@@ -68,7 +68,7 @@ class HelpController extends Controller
      */
     public function update(HelpUpdateRequest $request, Help $help) {
         $category=Category::where('slug', request('category_id'))->firstOrFail();
-        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
+        $data=array('title' => request('title'), 'content' => request('content'), 'keywords' => request('keywords'), 'state' => request('state'), 'category_id' => $category->id);
         $help->fill($data)->save();
 
         if ($help) {

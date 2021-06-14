@@ -42,6 +42,7 @@
 										<th>#</th>
 										<th>Nombre Completo</th>
 										<th>País</th>
+										<th>Url</th>
 										<th>Estado</th>
 										@if(auth()->user()->can('bests.edit') || auth()->user()->can('bests.active') || auth()->user()->can('bests.deactive') || auth()->user()->can('bests.delete'))
 										<th>Acciones</th>
@@ -56,6 +57,7 @@
 											<img src="{{ image_exist('/admins/img/bests/', $best->photo, true) }}" class="rounded-circle mr-2" width="45" height="45" alt="{{ $best->name." ".$best->lastname }}" title="{{ $best->name." ".$best->lastname }}"> {{ $best->name." ".$best->lastname }}
 										</td>
 										<td>@if(!is_null($best['country'])){{ $best['country']->nicename }}@else{{ "No Ingresado" }}@endif</td>
+										<td>{{ $best->url }}</td>
 										<td>{!! state($best->state) !!}</td>
 										@if(auth()->user()->can('bests.edit') || auth()->user()->can('bests.active') || auth()->user()->can('bests.deactive') || auth()->user()->can('bests.delete'))
 										<td>

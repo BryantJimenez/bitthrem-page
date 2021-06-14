@@ -26,9 +26,12 @@ class CategoryStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $help=($this->type=="2") ? true : false;
         return [
             'name.*' => 'required|string|min:2|max:191|unique_translation:categories,name,null,null,type,'.$this->type,
-            'type' => 'required|'.Rule::in(['1', '2', '3'])
+            'type' => 'required|'.Rule::in(['1', '2', '3']),
+            'icon' => Rule::requiredIf($help).'|file|mimetypes:image/*',
+            'description.*' => Rule::requiredIf($help).'|string|min:2|max:191'
         ];
     }
 }

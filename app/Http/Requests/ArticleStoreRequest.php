@@ -31,7 +31,9 @@ class ArticleStoreRequest extends FormRequest
             'image' => 'required|file|mimetypes:image/*',
             'title.*' => 'required|string|min:2|max:191|unique_translation:articles,title',
             'content.*' => 'required|string|min:2|max:65000',
-            'category_id' => 'required|'.Rule::in($categories)
+            'keywords.*' => 'required|string|min:2|max:191',
+            'category_id' => 'required|'.Rule::in($categories),
+            'state' => 'required|'.Rule::in(['0', '1'])
         ];
     }
 }

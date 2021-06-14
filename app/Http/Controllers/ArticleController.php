@@ -7,6 +7,7 @@ use App\Article;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ArticleUpdateRequest;
 use Illuminate\Http\Request;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -38,7 +39,7 @@ class ArticleController extends Controller
      */
     public function store(ArticleStoreRequest $request) {
         $category=Category::where('slug', request('category_id'))->firstOrFail();
-        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
+        $data=array('title' => request('title'), 'content' => request('content'), 'keywords' => request('keywords'), 'state' => request('state'), 'category_id' => $category->id, 'user_id' => Auth::id());
         $article=Article::create($data);
 
         if ($article) {
@@ -74,7 +75,10 @@ class ArticleController extends Controller
      */
     public function update(ArticleUpdateRequest $request, Article $article) {
         $category=Category::where('slug', request('category_id'))->firstOrFail();
-        $data=array('title' => request('title'), 'content' => request('content'), 'category_id' => $category->id);
+        $data=array('title' => request('title'), 'content' => request('content'), 'keywords' => request('keywords'), 'state' => request('state'), 'category_id' => $category->id);
+        if (is_null($category->user_id)) {
+            $data['user_id']=Auth::id();
+        }
         $article->fill($data)->save();
 
         if ($article) {

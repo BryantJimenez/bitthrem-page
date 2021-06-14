@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 Route::get('/usuarios/email', 'AdminController@emailVerifyAdmin');
+Route::get('/ayudas/buscar', 'AdminController@searchHelps');
+Route::get('/articulos/buscar', 'AdminController@searchArticles');
 
 /////////////////////////////////////////////// WEB ////////////////////////////////////////////////
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
@@ -24,6 +26,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 	Route::get(LaravelLocalization::transRoute('routes.web.about'), 'WebController@about')->name('web.about');
 	Route::get(LaravelLocalization::transRoute('routes.web.prices'), 'WebController@prices')->name('web.prices');
 	Route::get(LaravelLocalization::transRoute('routes.web.referral-program'), 'WebController@referrals')->name('web.referrals');
+	Route::get(LaravelLocalization::transRoute('routes.web.leaders'), 'WebController@leaders')->name('web.leaders');
+	Route::get(LaravelLocalization::transRoute('routes.web.faq'), 'WebController@faq')->name('web.faq');
+	// Blog
+	Route::get(LaravelLocalization::transRoute('routes.web.blog'), 'WebController@blog')->name('web.blog.index');
+	Route::get(LaravelLocalization::transRoute('routes.web.article'), 'WebController@article')->name('web.blog.show');
+	// Centro de Ayuda
+	Route::get(LaravelLocalization::transRoute('routes.web.helps_categories'), 'WebController@helps_categories')->name('web.helps.categories');
+	Route::get(LaravelLocalization::transRoute('routes.web.helps'), 'WebController@helps')->name('web.helps.index');
+	Route::get(LaravelLocalization::transRoute('routes.web.help'), 'WebController@help')->name('web.helps.show');
 	// Contacto
 	Route::post('/contacto', 'WebController@send')->name('web.contact.send');
 });

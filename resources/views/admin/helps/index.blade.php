@@ -54,7 +54,7 @@
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $help->title }}</td>
 										<td>{{ $help['category']->name }}</td>
-										<td>{!! state($help->state) !!}</td>
+										<td>{!! stateArticle($help->state) !!}</td>
 										@if(auth()->user()->can('helps.edit') || auth()->user()->can('helps.active') || auth()->user()->can('helps.deactive') || auth()->user()->can('helps.delete'))
 										<td>
 											<div class="btn-group" role="group">

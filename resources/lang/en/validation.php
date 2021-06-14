@@ -149,6 +149,8 @@ return [
     'attributes' => [
         'name.es'               => 'name',
         'name.en'               => 'name in english',
+        'description.es'        => 'description',
+        'description.en'        => 'description in english',
         'question.es'           => 'question',
         'question.en'           => 'question in english',
         'answer.es'             => 'answer',

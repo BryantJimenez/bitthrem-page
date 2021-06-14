@@ -18,7 +18,10 @@ class CreateBestsTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('slug')->unique();
-            $table->string('photo')->default('usuario.png');
+            $table->string('photo')->default('usuario.jpg');
+            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('url');
             $table->enum('state', [0, 1])->default(1);
             $table->bigInteger('country_id')->unsigned()->nullable();
             $table->timestamps();

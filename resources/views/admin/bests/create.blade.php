@@ -4,6 +4,7 @@
 
 @section('links')
 <link rel="stylesheet" href="{{ asset('/admins/vendor/dropify/dropify.min.css') }}">
+<link href="{{ asset('/admins/vendor/intltelinput/css/intlTelInput.min.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{{ asset('/admins/vendor/lobibox/Lobibox.min.css') }}">
 @endsection
 
@@ -51,9 +52,31 @@
 									<select class="form-control @error('country_id') is-invalid @enderror" name="country_id" required>
 										<option value="">Seleccione</option>
 										@foreach($countries as $country)
-										<option value="{{ $country->iso }}" @if(old('country_id')==$country->iso) selected @endif>{{ $country->nicename }}</option>
+										<option value="{{ $country->iso }}" @if(old('country_id')==$country->iso) selected @endif>{{ $country->nicename." (+".$country->phonecode.")" }}</option>
 										@endforeach
 									</select>
+								</div>
+
+								<div class="form-group col-lg-6 col-md-6 col-12">
+									<label class="col-form-label">Teléfono (Opcional)</label>
+									<div class="row">
+										<div class="col-12">
+											<input class="form-control number international-phone @error('phone') is-invalid @enderror" type="tel" name="phone_code" required placeholder="Introduzca un teléfono" value="{{ old('phone') }}">
+											<input type="hidden" name="phone" value="{{ old('phone') }}" id="international-phone-complete">
+											<span id="international-phone-valid-msg" class="text-success d-none">✓ Valido</span>
+											<span id="international-phone-error-msg" class="text-danger d-none"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group col-lg-6 col-md-6 col-12">
+									<label class="col-form-label">Correo Electrónico<b class="text-danger">*</b></label>
+									<input class="form-control @error('email') is-invalid @enderror" type="email" name="email" required placeholder="Introduzca un correo electrónico" value="{{ old('email') }}">
+								</div>
+
+								<div class="form-group col-lg-6 col-md-6 col-12">
+									<label class="col-form-label">Url<b class="text-danger">*</b></label>
+									<input class="form-control @error('url') is-invalid @enderror" name="url" placeholder="Introduzca la url de referido" value="{{ old('url') }}">
 								</div>
 								
 								<div class="form-group col-12">
@@ -77,6 +100,7 @@
 
 @section('scripts')
 <script src="{{ asset('/admins/vendor/dropify/dropify.min.js') }}"></script>
+<script src="{{ asset('/admins/vendor/intltelinput/js/intlTelInput.min.js') }}"></script>
 <script src="{{ asset('/admins/vendor/validate/jquery.validate.js') }}"></script>
 <script src="{{ asset('/admins/vendor/validate/additional-methods.js') }}"></script>
 <script src="{{ asset('/admins/vendor/validate/messages_es.js') }}"></script>

@@ -18,6 +18,7 @@ class CreateHelpsTable extends Migration
             $table->longText('title');
             $table->string('slug')->unique();
             $table->longText('content');
+            $table->longText('keywords');
             $table->enum('state', [0, 1])->default(1);
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->timestamps();

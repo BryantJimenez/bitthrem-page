@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return SlugOptions::create()->generateSlugsFrom(['name', 'lastname'])->saveSlugsTo('slug')->slugsShouldBeNoLongerThan(191)->doNotGenerateSlugsOnUpdate();
     }
+
+    public function articles() {
+        return $this->hasMany(Article::class);
+    }
 }

@@ -27,9 +27,11 @@ class SettingUpdateRequest extends FormRequest
             'phone' => 'required|string|min:5|max:20',
             'email' => 'required|string|email|max:191',
             'address' => 'required|string|min:2|max:191',
-            'facebook' => 'nullable|string|min:2|max:191',
-            'youtube' => 'nullable|string|min:2|max:191',
-            'instagram' => 'nullable|string|min:2|max:191'
+            'facebook' => 'nullable|url|min:2|max:191',
+            'youtube' => 'nullable|url|min:2|max:191',
+            'instagram' => 'nullable|url|min:2|max:191',
+            'comunity_facebook' => 'nullable|url|min:2|max:191',
+            'comunity_whatsapp' => 'nullable|url|min:2|max:191'
         ];
     }
 }

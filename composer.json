@@ -23,7 +23,8 @@
         "mcamara/laravel-localization": "^1.6",
         "spatie/laravel-permission": "^3.18",
         "spatie/laravel-sluggable": "^2.2",
-        "spatie/laravel-translatable": "^4.6"
+        "spatie/laravel-translatable": "^4.6",
+        "voku/simple_html_dom": "^4.7"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

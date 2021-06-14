@@ -10,27 +10,33 @@
 						<a href="javascript:void(0);" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.terms and conditions')</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.help center')</a>
+						<a href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), route('web.helps.categories'), [], true) }}" hreflang="{{ app()->getLocale() }}" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.help center')</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-6 col-12 order-2 order-md-1">
 				<ul class="list-unstyled text-center text-sm-left mb-0">
+					@if(!is_null($setting->comunity_facebook) && !empty($setting->comunity_facebook))
 					<li>
-						<a href="javascript:void(0);" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.facebook community')</a>
+						<a href="{{ $setting->comunity_facebook }}" target="_blank" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.facebook community')</a>
 					</li>
+					@endif
+					@if(!is_null($setting->comunity_whatsapp) && !empty($setting->comunity_whatsapp))
 					<li>
-						<a href="javascript:void(0);" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.whatsapp community')</a>
+						<a href="{{ $setting->comunity_whatsapp }}" target="_blank" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.whatsapp community')</a>
 					</li>
+					@endif
 					<li>
-						<a href="javascript:void(0);" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.blog')</a>
+						<a href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), route('web.blog.index'), [], true) }}" hreflang="{{ app()->getLocale() }}" class="text-dark text-decoration-none"><i class="fa fa-angle-right"></i> @lang('web.footer.blog')</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-12 order-0 order-md-2 d-flex justify-content-center align-items-center">
-				<img src="{{ asset('/web/img/logo.png') }}" class="w-100" alt="Logo de Bitthrem" title="Logo de Bitthrem">
+				<a class="text-center" href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), route('home'), [], true) }}" hreflang="{{ app()->getLocale() }}">
+					<img src="{{ asset('/web/img/logo.png') }}" class="w-100" alt="Logo Bitthrem" title="Logo Bitthrem">
+				</a>
 			</div>
 		</div>
 	</div>

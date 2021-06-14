@@ -12,14 +12,14 @@ class Category extends Model
 {
 	use SoftDeletes, HasSlug, HasTranslations;
 
-    protected $fillable = ['name', 'slug', 'type', 'state'];
+    protected $fillable = ['name', 'slug', 'description', 'icon', 'type', 'state'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()->generateSlugsFrom('name')->saveSlugsTo('slug')->slugsShouldBeNoLongerThan(191);
     }
 
-    public $translatable = ['name'];
+    public $translatable = ['name', 'description'];
 
     public function questions() {
         return $this->hasMany(Question::class);

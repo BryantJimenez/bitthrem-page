@@ -30,7 +30,8 @@ class HelpStoreRequest extends FormRequest
         return [
             'title.*' => 'required|string|min:2|max:191|unique_translation:helps,title',
             'content.*' => 'required|string|min:2|max:65000',
-            'category_id' => 'required|'.Rule::in($categories)
+            'category_id' => 'required|'.Rule::in($categories),
+            'state' => 'required|'.Rule::in(['0', '1'])
         ];
     }
 }

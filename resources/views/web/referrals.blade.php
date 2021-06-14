@@ -1,17 +1,19 @@
 @extends('layouts.web')
 
-@section('title', 'Programa de Referidos')
+@section('title', trans('web.title.referrals'))
+@section('og:description', 'Earn through our investment plans or totally free. Come and meet us!')
+@section('twitter:card', 'summary_large_image')
 
 @section('content')
 
-<section class="hero-referrals-banner d-flex align-items-center vh-100">
-	<div class="container">
+<section class="hero-referrals-banner  overflow-hidden position-relative d-flex align-items-center vh-100">
+	<div class="container position-relative">
 		<div class="row align-items-center">
 			<div class="col-lg-6 col-md-6 col-12 order-1 order-md-0">
 				<p class="h4 text-white font-weight-600 mb-3">@lang('referrals.banner.title')</p>
 				<p class="h5 text-white font-weight-light mb-4">@lang('referrals.banner.subtitle')</p>
 				<div class="text-md-left text-center">
-					<a href="javascript:void(0);" class="btn btn-primary rounded-pill px-4">@lang('referrals.banner.button')</a>
+					<a href="https://app.bitthrem.com/login" class="btn btn-primary rounded-pill px-4">@lang('referrals.banner.button')</a>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-12 d-flex order-0 order-md-1">
@@ -19,6 +21,12 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="light-animation">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </section>
 
 <section class="section-card-steps overflow-hidden py-md-5 py-3">
@@ -154,7 +162,7 @@
 					</div>
 
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12 my-3">
-						<div class="card card-level bg-gray-middle">
+						<div class="card card-level bg-gray-middle border-0">
 							<div class="card-body">
 								<div class="title pr-4">
 									<p class="h4 card-text text-primary">@lang('referrals.card-levels.card five title')</p>

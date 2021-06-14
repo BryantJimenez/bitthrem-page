@@ -235,7 +235,6 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
     ],
 
 ];

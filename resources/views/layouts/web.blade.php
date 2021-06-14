@@ -7,18 +7,19 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>@yield('title')</title>
 
-	{{-- <meta name="robots" content="index,follow" />
+	<meta name="robots" content="@yield('robots', 'index,follow')" />
 	<meta property="og:url" content="{{ url()->current() }}" />
-	<meta property="og:type" content="@yield('ogtype', 'website')" />
+	<meta property="og:type" content="@yield('og:type', 'website')" />
 	<meta property="og:title" content="@yield('title')" />
-	<meta property="og:description" content="@yield('ogdescription', 'Texto descriptivo de la página.')" />
-	<meta property="og:image" content="@yield('ogimage', asset('/web/img/logo.png'))" />
-	<meta name="description" content="@yield('ogdescription', 'Texto descriptivo de la página.')">
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="" />
-	<meta name="twitter:creator" content="" /> --}}
+	<meta property="og:description" content="@yield('og:description', 'Texto descriptivo de la página.')" />
+	<meta property="og:image" content="@yield('og:image', asset('/web/img/logo.png'))" />
+	<meta property="og:site_name" content="Bitthrem" />
+	<meta name="keywords" content="@yield('keywords', 'en que invertir, inversiones rentables, invertir dinero, invertir, negocios, para invertir, negocios rentables, negocios mas rentables, como ganar dinero facil, como ganar dinero por internet, bitthrem')"/>
+	<meta name="description" content="@yield('og:description', 'Texto descriptivo de la página.')">
+	<meta name="twitter:card" content="@yield('twitter:card', 'summary')" />
+	<meta property="fb:admins" content="https://www.facebook.com/Bitthrem">
 
-	<link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
+	<link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon" />
 
 	<!-- Font Awesome -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -55,6 +56,6 @@
 
 	<!-- Scripts -->
 	<script type="text/javascript" src="{{ asset('/web/js/script.js') }}"></script>
-	@include('admin.partials.notifications')
+	@include('web.partials.notifications')
 </body>
 </html>

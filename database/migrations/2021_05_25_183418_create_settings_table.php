@@ -21,6 +21,8 @@ class CreateSettingsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('youtube')->nullable();
             $table->string('instagram')->nullable();
+            $table->string('comunity_facebook')->nullable();
+            $table->string('comunity_whatsapp')->nullable();
             $table->timestamps();
         });
     }

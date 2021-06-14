@@ -35,10 +35,16 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryStoreRequest $request) {
-        $data=array('name' => request('name'), 'type' => request('type'));
+        $data=array('name' => request('name'), 'type' => request('type'), 'description' => request('description'));
         $category=Category::create($data);
-
         if ($category) {
+            // Mover imagen a carpeta categories y extraer nombre
+            if ($request->hasFile('icon') && $category->type=="2") {
+                $file=$request->file('icon');
+                $icon=store_files($file, "icon-".$category->slug, '/admins/img/categories/');
+                $category->fill(['icon' => $icon])->save();
+            }
+
             return redirect()->route('categorias.index')->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Registro exitoso', 'msg' => 'La categoría ha sido registrada exitosamente.']);
         } else {
             return redirect()->route('categorias.create')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Registro fallido', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.'])->withInputs();
@@ -63,10 +69,17 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryUpdateRequest $request, Category $category) {
-        $data=array('name' => request('name'), 'type' => request('type'));
+        $data=array('name' => request('name'), 'type' => request('type'), 'description' => request('description'));
         $category->fill($data)->save();
 
         if ($category) {
+            // Mover imagen a carpeta categories y extraer nombre
+            if ($request->hasFile('icon') && $category->type=="2") {
+                $file=$request->file('icon');
+                $icon=store_files($file, "icon-".$category->slug, '/admins/img/categories/');
+                $category->fill(['icon' => $icon])->save();
+            }
+
             return redirect()->route('categorias.edit', ['category' => $category->slug])->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Edición exitosa', 'msg' => 'La categoría ha sido editada exitosamente.']);
         } else {
             return redirect()->route('categorias.edit', ['category' => $category->slug])->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);

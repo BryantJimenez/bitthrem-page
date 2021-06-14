@@ -7,6 +7,38 @@ return [
         'image' => 'Banner Image'
     ],
 
+    'team' => [
+        'title' => 'Nuestro Equipo',
+        'subtitle' => 'Disponemos de un personal preparado para cumplir eficazmente cada tarea asignada y asi obtener beneficios, garantizando el retorno de su inversión.',
+
+        'dots' => [
+            'first' => 'Líderes',
+            'second' => 'Apoyo',
+            'third' => 'Marketing'
+        ],
+
+        'images' => [
+            'leaders' => [
+                'first' => 'Juan Perdomo',
+                'second' => 'Jesus Reyes',
+                'third' => 'Carla Ramirez',
+                'fourth' => 'Jaime Jaramillo'
+            ],
+
+            'support' => [
+                'first' => 'Miriam Carrero',
+                'second' => 'Alejandra Guzman',
+                'third' => 'Sandra Gutierrez'
+            ],
+
+            'marketing' => [
+                'first' => 'Dan Altosano',
+                'second' => 'Danna Sanchez',
+                'third' => 'Jose Blanco'
+            ]
+        ]
+    ],
+
     'mission' => [
         'title' => 'Nuestra Misión',
         'content' => 'Contribuir al exito de nuestros clientes en las metas financieras que desean cumplir con los planes de inversion que les ofrecemos dentro del plazo y beneficio esperado, comercializando y gestionando de forma profesional y responsable la cartera de fondos de los inversores.'

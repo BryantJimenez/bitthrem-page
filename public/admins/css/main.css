@@ -2632,6 +2632,10 @@ text.apexcharts-datalabel-label {
   font-size: 16px !important;
 }
 
+.iti {
+  display: block !important;
+}
+
 #app .w-4 {
   width: 1rem;
 }

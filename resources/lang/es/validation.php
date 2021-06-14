@@ -153,6 +153,9 @@ return [
         'state'                 => 'estado',
         'name.es'               => 'nombre',
         'name.en'               => 'nombre en inglés',
+        'icon'                  => 'icono',
+        'description.es'        => 'descripción',
+        'description.en'        => 'descripción en inglés',
         'question.es'           => 'pregunta',
         'question.en'           => 'pregunta en inglés',
         'answer.es'             => 'respuesta',
@@ -162,7 +165,9 @@ return [
         'title.en'              => 'título en inglés',
         'content.es'            => 'contenido',
         'content.en'            => 'contenido en inglés',
-        'country_id'            => 'país'
+        'country_id'            => 'país',
+        'comunity_facebook'     => 'comunidad de facebook',
+        'comunity_whatsapp'     => 'comunidad de whatsapp'
     ],
 ];
 ?>
