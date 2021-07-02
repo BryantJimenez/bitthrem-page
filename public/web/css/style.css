@@ -2127,6 +2127,18 @@ footer .social-media a:hover, footer .social-media a:active, footer .social-medi
 	}
 }
 
+@media (max-width: 475px) {
+	.hero-banner .banner-illustration img {
+		height: 70vh !important;
+	}
+}
+
+@media (max-width: 375.98px) {
+	.hero-banner .banner-illustration img {
+		height: 65vh !important;
+	}
+}
+
 /* Section Banner About */
 
 @media (max-width: 991px) {

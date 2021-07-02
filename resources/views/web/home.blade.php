@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="col-md-12 col-4 d-flex align-items-center justify-content-md-center">
-                        <a href="javascript:void(0);" class="btn btn-sm btn-purple rounded-pill">@lang('home.tutorial.know how')</a>
+                        <a href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), route('web.helps.show', ['category' => 'general', 'help' => 'como-realizar-un-deposito']), [], true) }}" class="btn btn-sm btn-purple rounded-pill">@lang('home.tutorial.know how')</a>
                     </div>
                 </div>
             </div>

@@ -97,7 +97,7 @@
 	<div class="container pt-md-5 pt-0">
 		<div class="row">
 			<div class="col-12 mb-md-5 mb-3">
-				<p class="h2 text-primary text-center font-weight-bold mb-0">@lang('prices.contact.title')</p>
+				<p class="h2 text-primary text-center font-weight-bold mb-0">@lang('leaders.contact.title')</p>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-12 d-flex align-items-center mb-lg-0 mb-3">

@@ -25,7 +25,7 @@ class WebController extends Controller
      */
     public function index() {
         $setting=Setting::firstOrFail();
-        $categories=Category::with(['questions'])->where('state', '1')->get();
+        $categories=Category::with(['questions'])->where([['type', '1'], ['state', '1']])->get();
         $articles=Article::where('state', '1')->orderBy('id', 'DESC')->limit(4)->get();
         return view('web.home', compact('setting', 'categories', 'articles'));
     }
